@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'sportNews.apps.SportNewsConfig',
     'django_cleanup.apps.CleanupConfig', # should be placed after your apps
     'tinymce',
-
     # 'sportNews',
 ]
 

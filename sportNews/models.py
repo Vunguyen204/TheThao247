@@ -24,7 +24,7 @@ class Category(models.Model):
         return self.name
 
 class Article(models.Model):
-    name = models.CharField(unique=True, max_length=100)
+    name = models.CharField(unique=True, max_length=200)
     slug = models.SlugField(unique=True, max_length=100)
     status = models.CharField(
         max_length=10, choices=APP_VALUE_STATUS_CHOICES, default=APP_VALUE_LAYOUT_DEFAULT)

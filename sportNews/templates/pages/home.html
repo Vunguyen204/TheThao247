@@ -1,12 +1,35 @@
 {% extends "pages/base.html" %}
 
+<style>
+    .btn_loadmore {
+        font-size: 14px;
+        text-transform: uppercase;
+        width: 100%;
+        background: #f2f2f2;
+        color: #292929;
+        border: 1px solid #e7e5e5;
+        display: block;
+        height: 44px;
+        line-height: 44px;
+        border-radius: 2px;
+        cursor: pointer;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .btn_loadmore a {
+        text-decoration: none !important;
+    }
+</style>
+
 {% block title %}Thể Thao 247 - Tin Thể Thao{%endblock %}
 
 {% block menu %}
 {% for category in categories %}
 {% if category.slug %}
-<li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="{% url 'category_detail' category.slug %}">
+<li class="nav-item" style="margin-right: 30px;">
+    <a class="nav-link active" aria-current="page" href="{% url 'category_detail' category.slug %}"
+        style="color: white;">
         {{ category.name }}
     </a>
 </li>
@@ -56,7 +79,7 @@
                         style="height: 500px; object-fit: cover;">
                 </a>
                 <div class="card-body">
-                    <a href="{% url 'article_detail' article.id %}">
+                    <a href="{% url 'article_detail' article.id %}" style="text-decoration: none;">
                         <h2 class="card-title">{{ article.name }}</h2>
                     </a>
                     <p class="card-text">
@@ -68,13 +91,14 @@
         {% else %}
         <!-- Các bài viết còn lại -->
         <div class="col-12 mb-4">
+            <hr>
             <div class="d-flex align-items-start">
                 <a href="{% url 'article_detail' article.id %}" class="flex-shrink-0">
                     <img src="{{ article.image.url }}" alt="{{ article.name }}"
                         style="height: 150px; width: 150px; object-fit: cover; border-radius: 5px;">
                 </a>
                 <div class="ms-3">
-                    <a href="{% url 'article_detail' article.id %}">
+                    <a href="{% url 'article_detail' article.id %}" style="text-decoration: none;">
                         <h5 class="mb-1">{{ article.name }}</h5>
                     </a>
                     <p class="mb-0 text-muted">
@@ -86,7 +110,15 @@
         {% endif %}
         {% endfor %}
     </div>
+
 </div>
 
+<!-- {% if has_more_articles %} -->
+<div class="btnXemthem">
+    <a href="#" id="loadMoreNews" class="btn_loadmore">
+        Xem thêm
+    </a>
+</div>
+<!-- {% endif %} -->
 
 {% endblock %}

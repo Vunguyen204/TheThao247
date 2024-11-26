@@ -5,8 +5,8 @@
 {% block menu %}
 {% for category in categories %}
 {% if category.slug %}
-<li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="{% url 'category_detail' category.slug %}">
+<li class="nav-item" style="margin-right: 30px;">
+    <a class="nav-link active" aria-current="page" href="{% url 'category_detail' category.slug %}"  style="color: white;">
         {{ category.name }}
     </a>
 </li>
@@ -55,7 +55,7 @@
                         style="height: 500px; object-fit: cover;">
                 </a>
                 <div class="card-body">
-                    <a href="{% url 'article_detail' article.id %}">
+                    <a href="{% url 'article_detail' article.id %}" style="text-decoration: none;">
                         <h2 class="card-title">{{ article.name }}</h2>
                     </a>
                     <p class="card-text">
@@ -73,7 +73,7 @@
                         style="height: 150px; width: 150px; object-fit: cover; border-radius: 5px;">
                 </a>
                 <div class="ms-3">
-                    <a href="{% url 'article_detail' article.id %}">
+                    <a href="{% url 'article_detail' article.id %}" style="text-decoration: none;">
                         <h5 class="mb-1">{{ article.name }}</h5>
                     </a>
                     <p class="mb-0 text-muted">

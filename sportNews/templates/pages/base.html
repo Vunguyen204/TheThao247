@@ -6,23 +6,66 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <title>{% block title %}{% endblock %}</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background-color: #0c4c8c !important;
+        }
+
+        .nav-link:hover {
+            color: #021d39 !important;
+        }
+
+        .Footer {
+            margin-top: 20px;
+            background-color: #0c4c8c !important;
+        }
+
+        .btn_loadmore {
+        font-size: 14px;
+        text-transform: uppercase;
+        width: 100%;
+        background: #f2f2f2;
+        color: #292929;
+        border: 1px solid #e7e5e5;
+        display: block;
+        height: 44px;
+        line-height: 44px;
+        border-radius: 2px;
+        cursor: pointer;
+        text-align: center;
+        margin-top: 15px;
+        text-decoration: none !important;
+    }
+    </style>
 </head>
 
 <body>
     <!-- Menu Bar -->
+    <div class="row" style="justify-content: center;">
+        <div class="logo col-md-6">
+            <a class=" navbar-brand" href="/">
+            <img src=" {% static 'sportNews/images/TheThao247.png' %} " alt="Logo" height="60" style="margin: 10px;" />
+            </a>
+        </div>
+    </div>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">
-                <img src=" {% static 'sportNews/images/TheThao247.png' %} " alt="Logo" height="40"
-                    style="margin: 10px 30px;" />
-            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav" style="justify-content: center;">
                 <ul class="navbar-nav">
+                    <li class="nav-item homeLogo" style="margin-right: 20px;">
+                        <a href="/" class="nav-link active" style="color:white ;"><i class="bi bi-house-fill"></i></a>
+                    </li>
                     {% block menu %}{% endblock %}
                     <!-- <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -45,7 +88,21 @@
         <div class="row" style="justify-content: center;">
             <div class="col-md-6">
                 {% block content %}{% endblock %}
+                <div class="btnXemthem">
+                    <a href="#" id="loadMoreNews" class="btn_loadmore">
+                        Xem thêm
+                    </a>
+                </div>
             </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="row Footer" style="justify-content: center;">
+        <div class="logo col-md-6">
+            <a class="navbar-brand" href="/">
+                <img src=" {% static 'sportNews/images/logoFooter.png' %} " alt="Logo" height="40"
+                    style="margin: 10px;" />
+            </a>
         </div>
     </div>
 </body>

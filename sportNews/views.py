@@ -8,9 +8,12 @@ def home(request):
     categories = Category.objects.filter(is_homepage=True).order_by('ordering')
     articles = Article.objects.filter(category__in=categories,
                                       status='published').order_by('-publish_date')
+    # has_more_articles = Article.objects.filter(category__in=categories, status='published').count() > 10
+    
     context = {
         'categories': categories,
-        'articles': articles
+        'articles': articles,
+        # 'has_more_articles': has_more_articles,
     }
     return render(request, 'pages/home.html', context)
 
